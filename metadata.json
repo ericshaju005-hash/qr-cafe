@@ -1,0 +1,6 @@
+{
+  "name": "CafeOrder",
+  "description": "Modern full-stack café QR ordering and cashier dashboard web application.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
