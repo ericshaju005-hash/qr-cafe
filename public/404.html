@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CafeOrder - Redirecting...</title>
+    <script>
+      // Single Page App redirect for GitHub Pages
+      (function() {
+        var l = window.location;
+        // Check if there is a repository subpath (e.g. /CafeOrder/...)
+        var segments = l.pathname.split('/').filter(Boolean);
+        var repo = '';
+        var route = '';
+
+        if (l.hostname.endsWith('github.io') && segments.length > 0) {
+          repo = '/' + segments[0];
+          route = '/' + segments.slice(1).join('/');
+        } else {
+          route = l.pathname;
+        }
+
+        var search = l.search || '';
+        var targetHash = '#/' + (route === '/' ? '' : route.replace(/^\/+/, ''));
+        if (search) {
+          targetHash += search;
+        }
+
+        // Redirect to index.html with the route formatted as hash
+        l.replace(
+          l.protocol + '//' + l.host + repo + '/' + targetHash
+        );
+      })();
+    </script>
+  </head>
+  <body style="background-color: #FBFBFA; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; color: #44403c;">
+    <p>Redirecting to Café Menu...</p>
+  </body>
+</html>

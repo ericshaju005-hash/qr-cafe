@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { RouterProvider, useRouter } from './router/Router';
 import { CafeProvider } from './context/CafeContext';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { Navbar } from './components/layout/Navbar';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
 import { TableModal } from './components/common/TableModal';
@@ -57,10 +58,12 @@ const AppContent: React.FC = () => {
 
 export default function App() {
   return (
-    <RouterProvider>
-      <CafeProvider>
-        <AppContent />
-      </CafeProvider>
-    </RouterProvider>
+    <ErrorBoundary>
+      <RouterProvider>
+        <CafeProvider>
+          <AppContent />
+        </CafeProvider>
+      </RouterProvider>
+    </ErrorBoundary>
   );
 }
